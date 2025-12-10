@@ -45,6 +45,13 @@ struct ContentView: View {
                 .frame(width: 100, height: 100)
             
             
+            RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+                .fill(isActive ? RadialGradient(colors: [.red, .green], center: .center, startRadius: 0, endRadius: 50) : RadialGradient(colors: [.green, .red], center: .center, startRadius: 0, endRadius: 50))
+                .frame(width: isActive ? 150 : 100, height: isActive ? 150 : 100)
+                
+
+            
+            
         }
         .padding()
     }
