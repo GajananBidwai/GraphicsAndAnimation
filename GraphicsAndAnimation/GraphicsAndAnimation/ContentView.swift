@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isActive: Bool = false
+    var gradient = Gradient(colors: [Color.red, Color.green])
     
     var body: some View {
         VStack {
@@ -38,6 +39,10 @@ struct ContentView: View {
             
             .frame(width: 200, height: 50)
             .background(isActive ? Color.green : Color.red, in: RoundedRectangle(cornerSize: CGSize(width: 25, height: 25)))
+            
+            RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+                .fill(LinearGradient(colors: [Color.red, Color.green], startPoint: .top, endPoint: .bottom))
+                .frame(width: 100, height: 100)
             
             
         }
