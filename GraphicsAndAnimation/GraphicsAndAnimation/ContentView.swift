@@ -49,8 +49,33 @@ struct ContentView: View {
                 .fill(isActive ? RadialGradient(colors: [.red, .green], center: .center, startRadius: 0, endRadius: 50) : RadialGradient(colors: [.green, .red], center: .center, startRadius: 0, endRadius: 50))
                 .frame(width: isActive ? 150 : 100, height: isActive ? 150 : 100)
                 
-
             
+            MeshGradient(
+                width: 3,
+                height: 3,
+                points: [
+                    .init(x: 0.0, y: 0.0),
+                    .init(x: 1.0, y: 0.0),
+                    .init(x: 2.0, y: 0.0),
+                    
+                    .init(x: 0.0, y: 1.0),
+                    .init(x: 1.0, y: 1.0),
+                    .init(x: 2.0, y: 1.0),
+                    
+                    .init(x: 0.0, y: 2.0),
+                    .init(x: 1.0, y: 2.0),
+                    .init(x: 2.0, y: 2.0),
+                ],
+                colors: [
+                    .red, .blue, .yellow,
+                    .orange, .mint, .purple,
+                    .pink, .green, .black
+                ]
+            )
+            .frame(width: 200, height: 200) 
+            .cornerRadius(20)
+
+                
             
         }
         .padding()
