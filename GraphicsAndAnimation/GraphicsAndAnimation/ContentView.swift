@@ -97,6 +97,10 @@ struct ContentView: View {
 //                path.closeSubpath()   // Close shape
 //            }
 //            .stroke(.red, lineWidth: 3)
+            Triangle()
+                .fill(.red)
+                .frame(width: 200, height: 200)
+
         }
         .padding()
     }
