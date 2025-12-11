@@ -230,33 +230,57 @@ struct ContentView: View {
 //            .chartLegend(.hidden)
 
 //SwiftUI Charts supports interactive selection.
-            Chart(weeklySales) { item in
-                BarMark(
-                    x: .value("Day", item.day),
-                    y: .value("Sales", item.value)
-                )
-                .foregroundStyle(selectedDay == item.day ? .red : .blue)
-            }
-            .chartOverlay { proxy in
-                Rectangle().fill(.clear).contentShape(Rectangle())
-                    .onTapGesture { location in
-                        if let value: String = proxy.value(atX: location.x) {
-                            print(value)
-                            selectedDay = value
-                                
-                            print(selectedDay)
-                            
-                        }
-                    }
-                    .foregroundStyle((selectedDay != nil) ? Color.green : Color.red)
+//            Chart(weeklySales) { item in
+//                BarMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value)
+//                )
+//                .foregroundStyle(selectedDay == item.day ? .red : .blue)
+//            }
+//            .chartOverlay { proxy in
+//                Rectangle().fill(.clear).contentShape(Rectangle())
+//                    .onTapGesture { location in
+//                        if let value: String = proxy.value(atX: location.x) {
+//                            print(value)
+//                            selectedDay = value
+//                                
+//                            print(selectedDay)
+//                            
+//                        }
+//                    }
+//                    .foregroundStyle((selectedDay != nil) ? Color.green : Color.red)
+//                
+//            }
+            
+            VStack {
+                Text("Hello SwiftUI")
+                    .font(.largeTitle)
+                    .padding()
+                    .background(.yellow)
+                    .cornerRadius(12)
                 
+                Button("Export as Image") {
+                    createImage()
+                }
             }
             
 
         }
         .padding()
+    }
+    
+    func createImage() {
+        let renderer = ImageRenderer(
+            content: Text("Hello SwiftUI")
+                .font(.largeTitle)
+                .padding()
+                .background(.yellow)
+                .cornerRadius(12)
+        )
         
-       
+        if let uiImage = renderer.uiImage {
+            print("Image created:", uiImage)
+        }
     }
     
 }
