@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ContentView: View {
     @State var isActive: Bool = false
@@ -13,67 +14,67 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ScrollView(.horizontal,showsIndicators: false) {
-                HStack() {
-                    Rectangle()
-                        .frame(width: 100, height: 100)
-                    RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                        .frame(width: 100, height: 100)
-                    Circle()
-                        .frame(width: 100, height: 100)
-                    Ellipse()
-                        .frame(width: 100, height: 50)
-                    Capsule()
-                        .frame(width: 100, height: 50)
-                }
-            }
-            .padding()
+//            ScrollView(.horizontal,showsIndicators: false) {
+//                HStack() {
+//                    Rectangle()
+//                        .frame(width: 100, height: 100)
+//                    RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+//                        .frame(width: 100, height: 100)
+//                    Circle()
+//                        .frame(width: 100, height: 100)
+//                    Ellipse()
+//                        .frame(width: 100, height: 50)
+//                    Capsule()
+//                        .frame(width: 100, height: 50)
+//                }
+//            }
+//            .padding()
             
-            Button(action: {
-                isActive.toggle()
-            }, label: {
-                Text(isActive ? "Active" : "InActive")
-                    .foregroundStyle(.white)
-                    .font(.system(size: 24, weight: .bold, design: .default))
-            })
+//            Button(action: {
+//                isActive.toggle()
+//            }, label: {
+//                Text(isActive ? "Active" : "InActive")
+//                    .foregroundStyle(.white)
+//                    .font(.system(size: 24, weight: .bold, design: .default))
+//            })
+//            
+//            .frame(width: 200, height: 50)
+//            .background(isActive ? Color.green : Color.red, in: RoundedRectangle(cornerSize: CGSize(width: 25, height: 25)))
             
-            .frame(width: 200, height: 50)
-            .background(isActive ? Color.green : Color.red, in: RoundedRectangle(cornerSize: CGSize(width: 25, height: 25)))
-            
-            RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
-                .fill(LinearGradient(colors: [Color.red, Color.green], startPoint: .top, endPoint: .bottom))
-                .frame(width: 100, height: 100)
-            
-            
-            RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
-                .fill(isActive ? RadialGradient(colors: [.red, .green], center: .center, startRadius: 0, endRadius: 50) : RadialGradient(colors: [.green, .red], center: .center, startRadius: 0, endRadius: 50))
-                .frame(width: isActive ? 150 : 100, height: isActive ? 150 : 100)
+//            RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+//                .fill(LinearGradient(colors: [Color.red, Color.green], startPoint: .top, endPoint: .bottom))
+//                .frame(width: 100, height: 100)
+//            
+//            
+//            RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
+//                .fill(isActive ? RadialGradient(colors: [.red, .green], center: .center, startRadius: 0, endRadius: 50) : RadialGradient(colors: [.green, .red], center: .center, startRadius: 0, endRadius: 50))
+//                .frame(width: isActive ? 150 : 100, height: isActive ? 150 : 100)
                 
             
-            MeshGradient(
-                width: 3,
-                height: 3,
-                points: [
-                    .init(x: 0.0, y: 0.0),
-                    .init(x: 1.0, y: 0.0),
-                    .init(x: 2.0, y: 0.0),
-                    
-                    .init(x: 0.0, y: 1.0),
-                    .init(x: 1.0, y: 1.0),
-                    .init(x: 2.0, y: 1.0),
-                    
-                    .init(x: 0.0, y: 2.0),
-                    .init(x: 1.0, y: 2.0),
-                    .init(x: 2.0, y: 2.0),
-                ],
-                colors: [
-                    .red, .blue, .yellow,
-                    .orange, .mint, .purple,
-                    .pink, .green, .black
-                ]
-            )
-            .frame(width: 100, height: 100)
-            .cornerRadius(20)
+//            MeshGradient(
+//                width: 3,
+//                height: 3,
+//                points: [
+//                    .init(x: 0.0, y: 0.0),
+//                    .init(x: 1.0, y: 0.0),
+//                    .init(x: 2.0, y: 0.0),
+//                    
+//                    .init(x: 0.0, y: 1.0),
+//                    .init(x: 1.0, y: 1.0),
+//                    .init(x: 2.0, y: 1.0),
+//                    
+//                    .init(x: 0.0, y: 2.0),
+//                    .init(x: 1.0, y: 2.0),
+//                    .init(x: 2.0, y: 2.0),
+//                ],
+//                colors: [
+//                    .red, .blue, .yellow,
+//                    .orange, .mint, .purple,
+//                    .pink, .green, .black
+//                ]
+//            )
+//            .frame(width: 100, height: 100)
+//            .cornerRadius(20)
             
 //            RoundedRectangle(cornerSize: CGSize(width: 25, height: 25))
 //                .foregroundStyle(.shadow(.drop(radius: 5)))
@@ -97,13 +98,112 @@ struct ContentView: View {
 //                path.closeSubpath()   // Close shape
 //            }
 //            .stroke(.red, lineWidth: 3)
-            Triangle()
-                .fill(.red)
-                .frame(width: 200, height: 200)
+//            Triangle()
+//                .fill(.red)
+//                .frame(width: 200, height: 200)
+//            
+//            Image(systemName: "trash")
+//                .resizable()
+//                .frame(width: 100, height: 100)
+//                .rotation3DEffect(Angle(degrees: 60), axis: (x: 1.1, y: 1.1, z: 1.1))
+                
+            
+           
+//          BAR CHART
+//            Chart(weeklySales) { item in
+//                BarMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value)
+//                )
+//                .foregroundStyle(.blue)
+//            }
+//            .frame(height: 250)
+
+//          LINE CHART
+//            Chart(weeklySales) { item in
+//                LineMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value)
+//                )
+//                .foregroundStyle(.red)
+//                .interpolationMethod(.monotone)
+//            }
+//            .frame(height: 250)
+
+            
+//          AREA CHART
+            
+//            Chart(weeklySales) { item in
+//                AreaMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value)
+//                )
+//                .foregroundStyle(.linearGradient(
+//                    colors: [.blue.opacity(0.3), .blue],
+//                    startPoint: .top,
+//                    endPoint: .bottom
+//                ))
+//            }
+//            .frame(height: 250)
+            
+//          POINT CHART
+//            Chart(weeklySales) { item in
+//                PointMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value)
+//                )
+//                .foregroundStyle(.purple)
+//                .symbol(.circle)
+//                .symbolSize(80)
+//            }
+//            .frame(height: 250)
+            
+            
+//          COMBINED CHART
+//            Chart(weeklySales) { item in
+//                AreaMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value)
+//                )
+//                .foregroundStyle(.blue.opacity(0.2))
+//                
+//                LineMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value)
+//                )
+//                .foregroundStyle(.blue)
+//                .lineStyle(.init(lineWidth: 3))
+//                
+//                PointMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value)
+//                )
+//                .foregroundStyle(.blue)
+//                .symbol(.circle)
+//            }
+//            .frame(height: 250)
+            
+//            RECTANGLE MARK
+               
+//            Chart(weeklySales) { item in
+//                RectangleMark(
+//                    x: .value("Day", item.day),
+//                    y: .value("Sales", item.value),
+//                    width: .automatic,
+//                    height: .automatic
+//                )
+//                .foregroundStyle(by: .value("Sales", item.value))
+//            }
+//            .frame(height: 250)
+            
+            
 
         }
         .padding()
+        
+       
     }
+    
 }
 
 #Preview {
