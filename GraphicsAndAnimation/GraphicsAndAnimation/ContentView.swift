@@ -11,6 +11,7 @@ import Charts
 struct ContentView: View {
     @State var isActive: Bool = false
     var gradient = Gradient(colors: [Color.red, Color.green])
+    @State private var selectedDay: String?
     
     var body: some View {
         VStack {
@@ -196,6 +197,60 @@ struct ContentView: View {
 //            }
 //            .frame(height: 250)
             
+//          Chart Modifiers
+            
+//            Chart(weeklySales) { item in
+//                BarMark(x: .value("Day", item.day), y: .value("Value", item.value))
+//            }
+//            .chartXAxis {
+//                AxisMarks(position: .bottom)
+//            }
+//            .chartYAxis {
+//                AxisMarks(position: .leading)
+//            }.chartPlotStyle { plot in
+//                plot
+//                    .background(Color(.systemGray6))
+//                    .border(.gray, width: 1)
+//            }
+//            // Use overlay to detect taps or show drag lines.
+//
+//            .chartOverlay { proxy in
+//                GeometryReader { geo in
+//                    Rectangle().fill(.clear)
+//                        .contentShape(Rectangle())
+//                        .onTapGesture { location in
+//                            let xValue = proxy.value(atX: location.x, as: String.self)
+//                            print("Tapped on:", xValue ?? "")
+//                        }
+//                }
+//            }
+//            .chartBackground { _ in
+//                Color.yellow.opacity(0.1)
+//            }
+//            .chartLegend(.hidden)
+
+//SwiftUI Charts supports interactive selection.
+            Chart(weeklySales) { item in
+                BarMark(
+                    x: .value("Day", item.day),
+                    y: .value("Sales", item.value)
+                )
+                .foregroundStyle(selectedDay == item.day ? .red : .blue)
+            }
+            .chartOverlay { proxy in
+                Rectangle().fill(.clear).contentShape(Rectangle())
+                    .onTapGesture { location in
+                        if let value: String = proxy.value(atX: location.x) {
+                            print(value)
+                            selectedDay = value
+                                
+                            print(selectedDay)
+                            
+                        }
+                    }
+                    .foregroundStyle((selectedDay != nil) ? Color.green : Color.red)
+                
+            }
             
 
         }
