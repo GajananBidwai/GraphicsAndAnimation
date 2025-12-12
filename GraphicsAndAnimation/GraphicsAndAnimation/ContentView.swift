@@ -267,18 +267,19 @@ struct ContentView: View {
             
 //          Transition
             Button {
-                isClicked.toggle()
-//                withAnimation {
-//                    isClicked.toggle()
-//                }
+//                isClicked.toggle()
+                withAnimation {
+                    isClicked.toggle()
+                }
             } label: {
                 Text("Animate the transition")
                     
             }.padding()
             if isClicked {
                 Text("Animate the transition")
-                    .transition(.scale.animation(.default))
+            //      .transition(.scale.animation(.default))
              //       .transition(.slideAndFade)
+                    .transition(.offset(x: 400, y: 0))
                     
             }
             Spacer()
