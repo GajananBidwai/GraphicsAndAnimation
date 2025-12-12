@@ -13,6 +13,7 @@ struct ContentView: View {
     var gradient = Gradient(colors: [Color.red, Color.green])
     @State private var selectedDay: String?
     @State var isClicked = false
+    @Namespace private var myAnimation
     
     var body: some View {
         VStack {
@@ -268,7 +269,7 @@ struct ContentView: View {
 //          Transition
             Button {
 //                isClicked.toggle()
-                withAnimation {
+                withAnimation(.easeInOut) {
                     isClicked.toggle()
                 }
             } label: {
@@ -285,12 +286,14 @@ struct ContentView: View {
             HStack {
                 if !isClicked {
                     Text("Left")
-                        .transition(.scale.animation(.default))
+//                        .transition(.scale.animation(.default))
+                        .matchedGeometryEffect(id: "TextAnimation", in: myAnimation)
                 }
                 Spacer()
                 if isClicked {
                     Text("Right")
-                        .transition(.scale.animation(.default))
+//                        .transition(.scale.animation(.default))
+                        .matchedGeometryEffect(id: "TextAnimation", in: myAnimation)
                 }
             }
             Spacer()
