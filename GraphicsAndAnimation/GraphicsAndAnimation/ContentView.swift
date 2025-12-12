@@ -267,15 +267,15 @@ struct ContentView: View {
 //            }
             
 //          Transition
-            Button {
-//                isClicked.toggle()
-                withAnimation(.easeInOut) {
-                    isClicked.toggle()
-                }
-            } label: {
-                Text("Animate the transition")
-                    
-            }.padding()
+//            Button {
+////                isClicked.toggle()
+//                withAnimation(.easeInOut) {
+//                    isClicked.toggle()
+//                }
+//            } label: {
+//                Text("Animate the transition")
+//                    
+//            }.padding()
 //            if isClicked {
 //                Text("Animate the transition")
 //            //      .transition(.scale.animation(.default))
@@ -283,21 +283,31 @@ struct ContentView: View {
 //                    .transition(.offset(x: 400, y: 0))
 //                    
 //            }
-            HStack {
-                if !isClicked {
-                    Text("Left")
-//                        .transition(.scale.animation(.default))
-                        .matchedGeometryEffect(id: "TextAnimation", in: myAnimation)
-                }
-                Spacer()
-                if isClicked {
-                    Text("Right")
-//                        .transition(.scale.animation(.default))
-                        .matchedGeometryEffect(id: "TextAnimation", in: myAnimation)
-                }
+//            HStack {
+//                if !isClicked {
+//                    Text("Left")
+////                        .transition(.scale.animation(.default))
+//                        .matchedGeometryEffect(id: "TextAnimation", in: myAnimation)
+//                }
+//                Spacer()
+//                if isClicked {
+//                    Text("Right")
+////                        .transition(.scale.animation(.default))
+//                        .matchedGeometryEffect(id: "TextAnimation", in: myAnimation)
+//                }
+//            }
+//            Spacer()
+            
+            Button {
+                isClicked.toggle()
+            } label: {
+                Text("Animate SF Symbol")
             }
-            Spacer()
-
+            .padding()
+            Image(systemName: "dot.radiowaves.forward")
+ //               .symbolEffect(.variableColor.iterative, options: .nonRepeating, isActive: isClicked)
+ //               .symbolEffect(.bounce, options: .nonRepeating, isActive: isClicked)
+                .font(.title)
 
         }
         .padding()
