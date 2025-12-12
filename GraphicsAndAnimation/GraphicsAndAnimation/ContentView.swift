@@ -275,12 +275,23 @@ struct ContentView: View {
                 Text("Animate the transition")
                     
             }.padding()
-            if isClicked {
-                Text("Animate the transition")
-            //      .transition(.scale.animation(.default))
-             //       .transition(.slideAndFade)
-                    .transition(.offset(x: 400, y: 0))
-                    
+//            if isClicked {
+//                Text("Animate the transition")
+//            //      .transition(.scale.animation(.default))
+//             //       .transition(.slideAndFade)
+//                    .transition(.offset(x: 400, y: 0))
+//                    
+//            }
+            HStack {
+                if !isClicked {
+                    Text("Left")
+                        .transition(.scale.animation(.default))
+                }
+                Spacer()
+                if isClicked {
+                    Text("Right")
+                        .transition(.scale.animation(.default))
+                }
             }
             Spacer()
 
