@@ -307,6 +307,11 @@ struct ContentView: View {
             Image(systemName: "dot.radiowaves.forward")
  //               .symbolEffect(.variableColor.iterative, options: .nonRepeating, isActive: isClicked)
  //               .symbolEffect(.bounce, options: .nonRepeating, isActive: isClicked)
+//                .symbolEffect(.wiggle.custom(angle: 90), value: isClicked)
+ //               .symbolEffect(.pulse, value: isClicked)
+//                .symbolEffect(.wiggle, value: isClicked)
+//                .symbolEffect(.variableColor, value: isClicked)
+                
                 .font(.title)
 
         }
