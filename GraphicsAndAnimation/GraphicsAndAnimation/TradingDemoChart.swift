@@ -14,7 +14,7 @@ struct TradingDemoChart: View {
 
     var body: some View {
         VStack(spacing: 16) {
-
+            
             Text("Trading Chart Demo")
                 .font(.title3)
                 .bold()
@@ -56,8 +56,8 @@ struct TradingDemoChart: View {
                 }
             }
             .frame(height: 300)
-            .chartXAxis(.hidden)
-            .chartYAxis(.hidden)
+//            .chartXAxis(.hidden)
+//            .chartYAxis(.hidden)
             .chartOverlay { proxy in
                 GeometryReader { geo in
                     Rectangle().fill(.clear).contentShape(Rectangle())

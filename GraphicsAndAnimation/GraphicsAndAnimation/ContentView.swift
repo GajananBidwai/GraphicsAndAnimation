@@ -12,6 +12,7 @@ struct ContentView: View {
     @State var isActive: Bool = false
     var gradient = Gradient(colors: [Color.red, Color.green])
     @State private var selectedDay: String?
+    @State var isClicked = false
     
     var body: some View {
         VStack {
@@ -252,38 +253,64 @@ struct ContentView: View {
 //                
 //            }
             
-            VStack {
-                Text("Hello SwiftUI")
-                    .font(.largeTitle)
-                    .padding()
-                    .background(.yellow)
-                    .cornerRadius(12)
-                
-                Button("Export as Image") {
-                    createImage()
-                }
-            }
+//            VStack {
+//                Text("Hello SwiftUI")
+//                    .font(.largeTitle)
+//                    .padding()
+//                    .background(.yellow)
+//                    .cornerRadius(12)
+//                
+//                Button("Export as Image") {
+//                    createImage()
+//                }
+//            }
             
+//          Transition
+            Button {
+                isClicked.toggle()
+//                withAnimation {
+//                    isClicked.toggle()
+//                }
+            } label: {
+                Text("Animate the transition")
+                    
+            }.padding()
+            if isClicked {
+                Text("Animate the transition")
+                    .transition(.scale.animation(.default))
+             //       .transition(.slideAndFade)
+                    
+            }
+            Spacer()
+
 
         }
         .padding()
     }
     
-    func createImage() {
-        let renderer = ImageRenderer(
-            content: Text("Hello SwiftUI")
-                .font(.largeTitle)
-                .padding()
-                .background(.yellow)
-                .cornerRadius(12)
-        )
-        
-        if let uiImage = renderer.uiImage {
-            print("Image created:", uiImage)
-        }
-    }
+//    func createImage() {
+//        let renderer = ImageRenderer(
+//            content: Text("Hello SwiftUI")
+//                .font(.largeTitle)
+//                .padding()
+//                .background(.yellow)
+//                .cornerRadius(12)
+//        )
+//        
+//        if let uiImage = renderer.uiImage {
+//            print("Image created:", uiImage)
+//        }
+//    }
     
 }
+
+extension AnyTransition {
+    static var slideAndFade: AnyTransition {
+        .move(edge: .bottom)
+            .combined(with: .opacity)
+    }
+}
+
 
 #Preview {
     ContentView()

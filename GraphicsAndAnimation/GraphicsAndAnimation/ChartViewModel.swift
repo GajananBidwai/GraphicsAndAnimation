@@ -19,8 +19,8 @@ class ChartViewModel {
         // Animate data coming in gradually like real chart
         Task {
             for point in staticPrices {
-                try? await Task.sleep(nanoseconds: 200_000_000) // 0.2 sec
-                withAnimation(.easeInOut(duration: 0.3)) {
+                try? await Task.sleep(nanoseconds: 300_000_000) // 0.2 sec
+                withAnimation(.easeInOut(duration: 1)) {
                     prices.append(point)
                 }
             }
