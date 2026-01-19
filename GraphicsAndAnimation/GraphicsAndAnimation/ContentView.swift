@@ -101,6 +101,7 @@ struct ContentView: View {
 //                path.closeSubpath()   // Close shape
 //            }
 //            .stroke(.red, lineWidth: 3)
+            
 //            Triangle()
 //                .fill(.red)
 //                .frame(width: 200, height: 200)
@@ -209,13 +210,14 @@ struct ContentView: View {
 //            }
 //            .chartYAxis {
 //                AxisMarks(position: .leading)
-//            }.chartPlotStyle { plot in
+//            }
+//            .chartPlotStyle { plot in
 //                plot
 //                    .background(Color(.systemGray6))
 //                    .border(.gray, width: 1)
 //            }
-//            // Use overlay to detect taps or show drag lines.
-//
+////            // Use overlay to detect taps or show drag lines.
+////
 //            .chartOverlay { proxy in
 //                GeometryReader { geo in
 //                    Rectangle().fill(.clear)
@@ -268,7 +270,7 @@ struct ContentView: View {
             
 //          Transition
 //            Button {
-////                isClicked.toggle()
+//              //  isClicked.toggle()
 //                withAnimation(.easeInOut) {
 //                    isClicked.toggle()
 //                }
@@ -278,10 +280,10 @@ struct ContentView: View {
 //            }.padding()
 //            if isClicked {
 //                Text("Animate the transition")
-//            //      .transition(.scale.animation(.default))
-//             //       .transition(.slideAndFade)
-//                    .transition(.offset(x: 400, y: 0))
-//                    
+////                    .transition(.scale.animation(.default))
+////                    .transition(.slideAndFade)
+////                    .transition(.offset(x: 400, y: 0))
+//                
 //            }
 //            HStack {
 //                if !isClicked {
@@ -305,10 +307,10 @@ struct ContentView: View {
             }
             .padding()
             Image(systemName: "dot.radiowaves.forward")
- //               .symbolEffect(.variableColor.iterative, options: .nonRepeating, isActive: isClicked)
- //               .symbolEffect(.bounce, options: .nonRepeating, isActive: isClicked)
+//                .symbolEffect(.variableColor.iterative, options: .nonRepeating, isActive: isClicked)
+                .symbolEffect(.bounce, options: .nonRepeating, isActive: isClicked)
 //                .symbolEffect(.wiggle.custom(angle: 90), value: isClicked)
- //               .symbolEffect(.pulse, value: isClicked)
+//                .symbolEffect(.pulse, value: isClicked)
 //                .symbolEffect(.wiggle, value: isClicked)
 //                .symbolEffect(.variableColor, value: isClicked)
                 

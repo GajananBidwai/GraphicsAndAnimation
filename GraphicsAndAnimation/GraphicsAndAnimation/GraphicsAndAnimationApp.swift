@@ -11,7 +11,7 @@ import SwiftUI
 struct GraphicsAndAnimationApp: App {
     var body: some Scene {
         WindowGroup {
-            TradingDemoChart()
+            TopicsListView()
         }
     }
 }
